@@ -1,4 +1,4 @@
-package Application1;
+				package Application1;
 
 /**
  * la classe TexteVideException est une exception générée lorsque le texte est vide.

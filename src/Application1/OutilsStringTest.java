@@ -2,6 +2,7 @@ package Application1;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import Application1.OutilsString;
@@ -15,6 +16,20 @@ import Application1.TexteVideException;
 public class OutilsStringTest {
 
 	@Test
+//<<<<<<< HEAD
+	/**
+	 * La méthode testFracVrai, verifie si la chaine est fractionnée
+	 */
+	public void testFracVrai() {
+		String chaine="imeimen";
+		char  s='i';
+		String[] essai=OutilsString.frac(s,chaine);
+		Boolean bool=true;
+		if (essai[0]!="ime") bool=false;
+		if (essai[1]!="imen") bool=false;
+		if(bool==true)fail("Resulat vrai");
+	}
+//=======
 	/**
 	 * le test de la méthode join.
 	 */
@@ -201,6 +216,46 @@ public class OutilsStringTest {
 		nbOccur = OutilsString.occrMot(texte, mot); 
 		if(nbOccur != 0)
 			fail("@ mot est null.");
+//>>>>>>> 8a990b5f8e1870d3232df57e339fd0a3887fa1e1
 	}
+
+	/**
+	 * La méthode testFracVrai, verifie si la chaine est fractionnée
+	 */
+	@Test
+	public void testFracFaux() {
+		String chaine="imeimen";
+		char  s='i';
+		String[] essai=OutilsString.frac(s,chaine);
+		Boolean bool=true;
+		if (essai[0]=="im") bool=false;
+		if (essai[1]=="imm") bool=false;
+		
+		if(bool==false)fail("Resulat faux");
+	}
+
+	/**
+	 * La méthode testMajMinEqualVrai, verifie si elle met la première lettre de la chaine est 
+	 * mise en majuscule et la suite est mise en minuscule
+	 */
+	@Test
+	public void testMajMinEqualVrai() {
+		String s="j'ai Le  Droit99", att="J'ai le  droit99",res="";
+		res=OutilsString.MajMin(s);
+		Assert.assertEquals(res, att);
+		
+	}
+
+	/**
+	 * La méthode testSuivLettre, verifie si chaque lettre de la chaine est remplacée par la
+	 * lettre suivante
+	 */
+	@Test
+	public void testSuivLettre() {
+		String s="aaabc", att="aabc",res="";
+		res=OutilsString.SuivLettre(s);
+		Assert.assertEquals(res, att);
+	}
+	
 
 }

@@ -1,13 +1,95 @@
 package Application1;
 
+//<<<<<<< HEAD
+import java.util.ArrayList;
+
+//=======
 import Application1.TexteVideException;
 
 /**
  * OutilsString est une classe qui contient plusieur méthodes de traitement de chaine de caractère
- * @author noursun et
+ * @author noursun et mimene
  * @version 1.0
  */
+//>>>>>>> 8a990b5f8e1870d3232df57e339fd0a3887fa1e1
 public class OutilsString {
+	/**
+	 * La méthode frac, fractionne une chaînes de caractères avec un caractère de séparation
+	 * 
+	 * @param s
+	 * 			le caractère de séparation
+	 * 
+	 * @param chaine
+	 * 			la chaine à fractionner
+	 * 
+	 * @return
+	 * 			un tableau de chaine
+	 */
+	public static String[] frac(char s,String chaine){
+
+        ArrayList<String> nouvs = new ArrayList<String>();
+		char r;
+		String temp="";
+		int i=0;
+		while(i<chaine.length()){
+			r=chaine.charAt(i);
+			if(s==r){
+				nouvs.add(temp);
+				temp="";
+				}		
+			i++;
+			temp= temp+ Character.toString(r) ;
+		}
+		return nouvs.toArray(new String[0]);
+		
+	}
+
+	/**
+	 * La méthode MajMin, met en majuscule le premier caractère d'une chaînes de caractères 
+	 * et en minuscule la suite
+	 * 
+	 * @param chaine
+	 * 				une chaine de caractère
+	 * 
+	 * @return
+	 * 		une chaine de caractère
+	 */
+	public static String MajMin(String chaine){
+		String nouv = "";
+		int i=1;
+		nouv=nouv+Character.toUpperCase(chaine.charAt(0));
+
+		while(i<chaine.length()){
+			nouv=nouv+Character.toLowerCase(chaine.charAt(i));
+			i++;
+		}
+		
+		return nouv;
+	}
+
+	/**
+	 * La méthode SuivLettre, remplace chaque caractère d'une chaînes de caractères avec le 
+	 * caractère suivant
+	 * 
+	 * @param chaine
+	 * 				une chaine de caractère
+	 * 
+	 * @return
+	 * 		une chaine de caractère
+	 */
+	public static String SuivLettre(String chaine){
+		int i=1;
+		String suiv="";
+			
+		while(i<chaine.length()){
+			suiv=suiv+chaine.charAt(i);
+			i++;
+		}
+			
+		return suiv;
+	}
+
+	
 
 	
 	/**
@@ -112,3 +194,6 @@ public class OutilsString {
 	}
 	
 }
+
+
+
