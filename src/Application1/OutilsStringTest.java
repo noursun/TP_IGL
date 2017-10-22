@@ -27,7 +27,16 @@ public class OutilsStringTest {
 		Boolean bool=true;
 		if (essai[0]!="ime") bool=false;
 		if (essai[1]!="imen") bool=false;
-		if(bool==true)fail("Resulat vrai");
+		if(bool==true)fail("Resulat vrai pour frac avec separateur");
+	}
+	
+	public void testFracF() {
+		String chaine="imeimen";
+		char  s='a';
+		String[] essai=OutilsString.frac(s,chaine);
+		Boolean bool=true;
+		if (essai[0]!="imeimene") bool=false;
+		if(bool==true)fail("Resulat vrai pour frac avec separateur non existant");
 	}
 //=======
 	/**
@@ -222,18 +231,7 @@ public class OutilsStringTest {
 	/**
 	 * La méthode testFracVrai, verifie si la chaine est fractionnée
 	 */
-	@Test
-	public void testFracFaux() {
-		String chaine="imeimen";
-		char  s='i';
-		String[] essai=OutilsString.frac(s,chaine);
-		Boolean bool=true;
-		if (essai[0]=="im") bool=false;
-		if (essai[1]=="imm") bool=false;
-		
-		if(bool==false)fail("Resulat faux");
-	}
-
+	
 	/**
 	 * La méthode testMajMinEqualVrai, verifie si elle met la première lettre de la chaine est 
 	 * mise en majuscule et la suite est mise en minuscule
@@ -241,6 +239,14 @@ public class OutilsStringTest {
 	@Test
 	public void testMajMinEqualVrai() {
 		String s="j'ai Le  Droit99", att="J'ai le  droit99",res="";
+		res=OutilsString.MajMin(s);
+		Assert.assertEquals(res, att);
+		
+	}
+
+	@Test
+	public void testMajMinEqualVrai2() {
+		String s="J'ai Le  Droit99", att="J'ai le  droit99",res="";
 		res=OutilsString.MajMin(s);
 		Assert.assertEquals(res, att);
 		
